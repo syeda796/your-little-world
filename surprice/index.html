@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101321">
+<title>Romi's Little Universe ✧ A birthday love letter from Minhal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --night: #101321;
+  --navy: #171b30;
+  --gold: #e9cb91;
+  --pink: #e8b9c7;
+  --rose: #b97991;
+  --cream: #fff4e8;
+  --muted: #c7bfd0;
+  --paper: #fff4e4;
+  --ink: #473449;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; min-height: 100vh; background: var(--night); color: var(--cream);
+  font-family: 'Montserrat', sans-serif; font-weight: 300; overflow-x: hidden;
+}
+button { font: inherit; }
+button:focus-visible { outline: 2px solid var(--gold); outline-offset: 5px; }
+#sky {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+  background:
+    radial-gradient(ellipse at 18% 18%, #35304e 0%, transparent 43%),
+    radial-gradient(ellipse at 83% 75%, #38213b 0%, transparent 43%),
+    linear-gradient(145deg, #101321, #1b172b 65%, #111522);
+}
+.star {
+  position: absolute; width: 2px; height: 2px; background: #fff7dc; border-radius: 50%;
+  animation: twinkle var(--duration, 3s) infinite ease-in-out;
+}
+@keyframes twinkle {
+  0%,100% { opacity: .18; transform: scale(.7); }
+  50% { opacity: 1; transform: scale(1.7); }
+}
+.shooting-star {
+  position: absolute; width: 90px; height: 1px;
+  background: linear-gradient(90deg, #fff8df, transparent);
+  transform: rotate(-35deg); opacity: 0; animation: shoot 1.2s ease-out forwards;
+}
+@keyframes shoot {
+  0% { opacity: 0; transform: translate(0,0) rotate(-35deg); }
+  15% { opacity: .9; }
+  100% { opacity: 0; transform: translate(-180px,120px) rotate(-35deg); }
+}
+.petal {
+  position: fixed; top: -30px; z-index: 2; pointer-events: none;
+  color: var(--pink); opacity: .58; animation: fall linear forwards;
+}
+@keyframes fall {
+  to { transform: translate(var(--drift), 110vh) rotate(600deg); opacity: 0; }
+}
+header {
+  position: relative; z-index: 10; padding: 18px 6%;
+  display: flex; justify-content: space-between; align-items: center; gap: 12px;
+  border-bottom: 1px solid #ffffff12;
+}
+.brand { font-family: 'Great Vibes', cursive; color: var(--gold); font-size: 29px; }
+.music-area { display: flex; align-items: center; gap: 9px; }
+.music-button {
+  border: 1px solid #e9cb9166; border-radius: 50px; color: var(--cream);
+  background: #ffffff08; padding: 10px 15px; cursor: pointer;
+  font-size: 10px; letter-spacing: 1px; transition: .25s;
+}
+.music-button:hover { background: #e9cb911a; }
+.music-button.playing { color: var(--gold); }
+.track-note { color: #b9adc4; font-size: 9px; letter-spacing: 1px; }
+main { position: relative; z-index: 3; min-height: 78vh; }
+.page {
+  display: none; min-height: 82vh; padding: 52px 22px 78px; text-align: center;
+  align-items: center; flex-direction: column; justify-content: center;
+  animation: appear .8s ease both;
+}
+.page.active { display: flex; }
+@keyframes appear {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.eyebrow { text-transform: uppercase; letter-spacing: 3px; font-size: 10px; color: var(--gold); margin-bottom: 20px; }
+h1, h2 { font-family: 'Cormorant Garamond', serif; font-weight: 400; margin: 0; }
+h1 { font-size: clamp(48px, 8vw, 92px); line-height: 1.02; }
+h2 { font-size: clamp(38px, 6vw, 62px); }
+.script { font-family: 'Great Vibes', cursive; color: var(--pink); font-size: clamp(36px, 6vw, 62px); }
+.gold { color: var(--gold); }
+.subtitle { color: var(--muted); font-size: 13px; line-height: 2; max-width: 530px; margin: 22px auto 28px; }
+.moon {
+  font-size: 64px; margin-bottom: 24px; color: var(--gold);
+  filter: drop-shadow(0 0 24px #e9cb9177); animation: moonGlow 4s ease-in-out infinite;
+}
+@keyframes moonGlow {
+  50% { filter: drop-shadow(0 0 42px #e9cb91aa); transform: translateY(-5px); }
+}
+.btn {
+  background: linear-gradient(120deg, #f0d9ae, #d9a8b9); color: #252035; border: 0;
+  padding: 14px 24px; border-radius: 40px; cursor: pointer; font-size: 10px;
+  letter-spacing: 1.1px; transition: .25s;
+}
+.btn:hover { transform: translateY(-3px); box-shadow: 0 8px 30px #e9cb9125; }
+.btn-outline { color: var(--gold); border: 1px solid #e9cb9166; background: transparent; }
+.navigation {
+  position: relative; z-index: 10; display: flex; justify-content: center;
+  align-items: center; gap: 9px; padding: 10px 10px 32px; flex-wrap: wrap;
+}
+.nav-dot {
+  border: 1px solid #ffffff30; background: transparent; color: var(--muted);
+  width: 35px; height: 35px; border-radius: 50%; cursor: pointer; font-size: 10px;
+}
+.nav-dot.active { background: var(--gold); color: #211b2c; border-color: var(--gold); }
+footer { position: relative; z-index: 4; text-align: center; padding: 0 20px 24px; font-size: 10px; color: #a9a0b5; letter-spacing: 1px; }
+.divider { width: 90px; height: 1px; margin: 23px auto; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+.small-note { color: #a9a0b5; font-size: 10px; line-height: 1.8; margin-top: 19px; }
+.orbit {
+  width: 160px; height: 160px; border: 1px solid #e9cb9140; border-radius: 50%;
+  display: grid; place-items: center; margin-bottom: 25px; position: relative;
+  box-shadow: 0 0 50px #e9cb910a, inset 0 0 35px #e9cb9108;
+}
+.orbit::before, .orbit::after {
+  content: ''; position: absolute; border: 1px solid #e8b9c744; border-radius: 50%;
+  width: 210px; height: 90px; transform: rotate(-35deg);
+}
+.orbit::after { width: 205px; height: 75px; transform: rotate(42deg); border-color: #e9cb9133; }
+.orbit span { font-size: 55px; color: var(--gold); text-shadow: 0 0 25px #e9cb9155; }
+.scrapbook {
+  width: min(930px, 100%); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px; margin: 27px auto;
+}
+.polaroid {
+  background: #f8eddd; color: var(--ink); padding: 9px 9px 15px;
+  box-shadow: 0 9px 24px #0003; transform: rotate(var(--tilt, -2deg));
+  transition: transform .3s, box-shadow .3s; position: relative;
+}
+.polaroid:nth-child(even) { --tilt: 2deg; }
+.polaroid:hover { transform: rotate(0) translateY(-6px); box-shadow: 0 15px 30px #0005; z-index: 2; }
+.photo-frame {
+  height: 190px; background: linear-gradient(145deg, #57445a, #29283f 65%, #6a435c);
+  display: grid; place-items: center; overflow: hidden; position: relative;
+}
+.photo-frame img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+.photo-placeholder { font-size: 30px; color: #f3d9d8; }
+.photo-caption {
+  font-family: 'Great Vibes', cursive; font-size: 23px; padding: 10px 3px 0;
+  min-height: 39px;
+}
+.tape {
+  position: absolute; top: -7px; left: 38%; width: 45px; height: 15px;
+  background: #e8b9c7b8; transform: rotate(-8deg); z-index: 3;
+}
+.scrap-note { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--pink); font-size: 20px; }
+.letter-wrap { width: min(620px, 100%); margin: 25px auto; }
+.envelope {
+  width: 100%; padding: 35px 22px; border: 1px solid #e9cb9155; border-radius: 12px;
+  background: linear-gradient(145deg, #423146, #24243a); cursor: pointer; color: var(--cream); transition: .4s;
+}
+.envelope:hover { transform: translateY(-4px); }
+.envelope .icon { font-size: 46px; display: block; margin-bottom: 12px; }
+.letter {
+  display: none; text-align: left; padding: 30px; border-radius: 10px;
+  background: var(--paper); color: var(--ink); font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; line-height: 1.72; box-shadow: 0 15px 60px #0004;
+  background-image: radial-gradient(#b987a011 1px, transparent 1px); background-size: 12px 12px;
+}
+.letter.open { display: block; animation: appear .7s ease both; }
+.letter .signature { font-family: 'Great Vibes', cursive; font-size: 36px; color: #8f526b; }
+.wish-grid { width: min(800px, 100%); display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 28px auto; }
+.wish {
+  aspect-ratio: 1; min-height: 82px; border-radius: 12px; background: #ffffff08;
+  border: 1px solid #e9cb9133; color: var(--gold); cursor: pointer; font-size: 23px;
+  transition: .3s; padding: 8px;
+}
+.wish:hover { background: #e9cb9118; transform: translateY(-3px); }
+.wish span { display: block; font-size: 9px; margin-top: 7px; color: var(--muted); letter-spacing: .5px; }
+.wish.opened { background: #e9cb9125; border-color: var(--gold); }
+.wish-message { max-width: 470px; min-height: 72px; margin: 13px auto; font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--pink); line-height: 1.4; }
+.secret-box {
+  max-width: 590px; width: 100%; padding: 34px 27px; border: 1px solid #e9cb9144;
+  border-radius: 18px; background: #ffffff07; margin: 24px auto;
+}
+.secret-message { display: none; font-family: 'Cormorant Garamond', serif; font-size: 25px; line-height: 1.75; }
+.secret-message.show { display: block; animation: appear .8s ease both; }
+.countdown { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin: 27px auto; }
+.countdown div { min-width: 90px; padding: 15px 12px; border: 1px solid #e9cb9133; border-radius: 12px; background: #ffffff08; }
+.countdown strong { display: block; font: 35px 'Cormorant Garamond', serif; color: var(--gold); }
+.countdown span { font-size: 9px; letter-spacing: 1px; color: var(--muted); }
+.confetti { position: fixed; top: -15px; z-index: 20; pointer-events: none; animation: confettiFall var(--speed) linear forwards; }
+@keyframes confettiFall { to { transform: translate(var(--x), 110vh) rotate(800deg); opacity: .1; } }
+@media (max-width: 760px) {
+  .scrapbook { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 520px; gap: 14px; }
+  .photo-frame { height: 180px; }
+  .wish-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 480px) {
+  header { padding: 15px 4%; }
+  .brand { font-size: 24px; }
+  .music-button { padding: 9px 10px; font-size: 9px; }
+  .track-note { display: none; }
+  .page { padding: 42px 16px 58px; min-height: 78vh; }
+  .scrapbook { gap: 10px; }
+  .photo-frame { height: 145px; }
+  .polaroid { padding: 7px 7px 12px; }
+  .photo-caption { font-size: 20px; }
+  .wish-grid { gap: 7px; }
+  .wish { min-height: 65px; font-size: 19px; }
+  .wish span { font-size: 8px; }
+  .letter { padding: 22px; font-size: 19px; }
+  .countdown { gap: 7px; }
+  .countdown div { min-width: 76px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
+
+/* Romi's interactive birthday wishes */
+.wish-grid {
+  width: min(650px, 100%);
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 13px;
+  margin: 28px auto 20px;
+}
+
+.wish {
+  aspect-ratio: 1;
+  min-height: 82px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #28253e, #151629);
+  border: 1px solid #e9cb9155;
+  color: #e9cb91;
+  cursor: pointer;
+  font-size: 27px;
+  transition: transform .35s, background .35s, box-shadow .35s;
+  position: relative;
+}
+
+.wish span {
+  display: block;
+  font-size: 9px;
+  margin-top: 5px;
+  color: #c7bfd0;
+  letter-spacing: 1px;
+}
+
+.wish:hover {
+  transform: translateY(-5px) scale(1.06);
+  box-shadow: 0 0 22px #e9cb9133;
+}
+
+.wish.opened {
+  background: radial-gradient(circle, #554054, #282039);
+  border-color: #e8b9c7;
+  color: #f4cbd8;
+  box-shadow: 0 0 22px #e8b9c733;
+  animation: wishPop .45s ease;
+}
+
+@keyframes wishPop {
+  0% { transform: scale(.8); }
+  60% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+
+.wish-counter {
+  font-size: 11px;
+  color: #e9cb91;
+  letter-spacing: 1px;
+  margin: 5px auto 15px;
+}
+
+.wish-reveal {
+  width: min(520px, 100%);
+  min-height: 190px;
+  padding: 27px 24px;
+  margin: 0 auto 28px;
+  border: 1px solid #e9cb9144;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #ffffff0a, #e8b9c70b);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 0 35px #e9cb9108;
+}
+
+.wish-reveal.revealing {
+  animation: revealWish .6s ease;
+}
+
+@keyframes revealWish {
+  from { opacity: .3; transform: translateY(10px) scale(.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.reveal-star {
+  color: #e9cb91;
+  font-size: 28px;
+  text-shadow: 0 0 18px #e9cb9177;
+}
+
+.wish-reveal p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(23px, 4vw, 30px);
+  color: #f4d8e2;
+  line-height: 1.45;
+  margin: 14px 0;
+}
+
+.reveal-signature {
+  font-family: 'Great Vibes', cursive;
+  font-size: 25px;
+  color: #e9cb91;
+}
+
+@media (max-width: 480px) {
+  .wish-grid {
+    gap: 8px;
+  }
+
+  .wish {
+    min-height: 58px;
+    font-size: 21px;
+  }
+
+  .wish span {
+    font-size: 8px;
+  }
+
+  .wish-reveal {
+    min-height: 175px;
+    padding: 22px 17px;
+  }
+}
+
+
+/* ROMI'S MINI POLAROID GALLERY */
+
+#page1 .memory-heading {
+  font-size: clamp(32px, 5vw, 55px);
+  line-height: 1.2;
+  text-align: center;
+}
+
+#page1 .memory-intro {
+  max-width: 650px;
+  margin: 18px auto 35px;
+  font-size: clamp(15px, 1.8vw, 18px);
+  line-height: 1.9;
+  text-align: center;
+}
+
+.polaroid-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 170px);
+  justify-content: center;
+  align-items: center;
+  gap: 35px 32px;
+  max-width: 700px;
+  margin: 45px auto 55px;
+  padding: 15px;
+}
+
+.mini-polaroid {
+  position: relative;
+  width: 170px;
+  padding: 10px 10px 14px;
+  background: #fffaf2;
+  border: 1px solid rgba(145, 110, 85, 0.18);
+  border-radius: 2px;
+  box-shadow: 0 9px 22px rgba(0, 0, 0, 0.25);
+  transition: transform 0.35s ease,
+              box-shadow 0.35s ease;
+}
+
+.mini-polaroid img {
+  display: block;
+  width: 100%;
+  height: 175px;
+  object-fit: cover;
+  object-position: center;
+  background: #eee5df;
+}
+
+.mini-polaroid p {
+  margin: 12px 0 0;
+  color: #786077;
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* SCRAPBOOK ROTATIONS */
+.mini-polaroid:nth-child(1) {
+  transform: rotate(-7deg);
+}
+
+.mini-polaroid:nth-child(2) {
+  transform: rotate(4deg);
+}
+
+.mini-polaroid:nth-child(3) {
+  transform: rotate(-3deg);
+}
+
+.mini-polaroid:nth-child(4) {
+  transform: rotate(5deg);
+}
+
+.mini-polaroid:nth-child(5) {
+  transform: rotate(-5deg);
+}
+
+.mini-polaroid:nth-child(6) {
+  transform: rotate(6deg);
+}
+
+/* HOVER EFFECT */
+.mini-polaroid:hover {
+  transform: rotate(0deg) scale(1.08);
+  box-shadow: 0 16px 35px rgba(0,0,0,0.35);
+  z-index: 5;
+}
+
+/* DECORATIVE TAPE */
+.polaroid-tape {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  width: 60px;
+  height: 20px;
+  background: rgba(236, 199, 172, 0.75);
+  transform: translateX(-50%) rotate(-4deg);
+  z-index: 2;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+/* TABLET */
+@media (max-width: 750px) {
+  .polaroid-gallery {
+    grid-template-columns: repeat(2, 160px);
+    gap: 30px 24px;
+  }
+
+  .mini-polaroid {
+    width: 160px;
+  }
+
+  .mini-polaroid img {
+    height: 165px;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 400px) {
+  .polaroid-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px 18px;
+    padding: 15px 12px;
+  }
+
+  .mini-polaroid {
+    width: 100%;
+    padding: 8px 8px 12px;
+  }
+
+  .mini-polaroid img {
+    height: 145px;
+  }
+
+  .mini-polaroid p {
+    font-size: 10px;
+  }
+}
+
+</style>
+</head>
+<body>
+<div id="sky" aria-hidden="true"></div>
+
+<header>
+  <div class="brand">Romi's little universe ✧</div>
+  <div class="music-area">
+    <span class="track-note" id="trackNote">A SONG FOR EVERY CHAPTER</span>
+    <button class="music-button" id="musicBtn" type="button" aria-label="Play or pause birthday music">♫ <span id="musicLabel">PLAY MUSIC</span></button>
+  </div>
+</header>
+
+<audio id="player" preload="none" loop></audio>
+
+<main>
+  <!-- PAGE 1: THE SECRET INVITATION -->
+  <section class="page active" id="page0">
+    <div class="orbit"><span>☾</span></div>
+    <div class="eyebrow">18 January · a day written in stardust</div>
+    <h1>Romi, this little<br><span class="gold">universe</span> is yours.</h1>
+    <div class="script">Made with love by Minhal.</div>
+    <p class="subtitle">
+      Out of all the people in this enormous universe, life gave me you.
+      And if I could wrap every wish, every star, and every beautiful
+      thing in the world into one gift, I'd give it all to you.
+    </p>
+    <button class="btn" onclick="goTo(1)">ENTER YOUR LITTLE UNIVERSE ✧</button>
+    <div class="small-note">A LITTLE WORLD FOR MY COUSIN, MY SISTER BY HEART ♡</div>
+  </section>
+
+
+
+
+
+
+
+
+<!-- PAGE 2: ROMI'S POLAROID SCRAPBOOK -->
+<section class="page" id="page1">
+
+  <div class="eyebrow">chapter one · pieces of our universe</div>
+
+  <h2 class="memory-heading">
+    A thousand little reasons<br>
+    <span class="gold">to adore you.</span>
+  </h2>
+
+  <p class="subtitle memory-intro">
+    Some people are memories we never want to forget.
+    And you, Romi, are a whole collection of beautiful moments.
+    So here's a little gallery of the girl who makes
+    ordinary days feel special. ♡
+  </p>
+
+  <div class="polaroid-gallery">
+
+    <!-- PHOTO 1 -->
+    <div class="mini-polaroid">
+      <span class="polaroid-tape"></span>
+      <img src="photos/1.jpg" alt="Romi photo 1">
+      <p>the birthday girl ♡</p>
+    </div>
+
+    <!-- PHOTO 2 -->
+    <div class="mini-polaroid">
+      <span class="polaroid-tape"></span>
+      <img src="photos/2.jpg" alt="Romi photo 2">
+      <p>my favourite human ✧</p>
+    </div>
+
+    <!-- PHOTO 3 -->
+    <div class="mini-polaroid">
+      <span class="polaroid-tape"></span>
+      <img src="photos/3.jpg" alt="Romi photo 3">
+      <p>made of stardust ☾</p>
+    </div>
+
+    <!-- PHOTO 4 -->
+    <div class="mini-polaroid">
+      <span class="polaroid-tape"></span>
+      <img src="photos/4.jpg" alt="Romi photo 4">
+      <p>sunshine in disguise ♡</p>
+    </div>
+
+    <!-- PHOTO 5 -->
+    <div class="mini-polaroid">
+      <span class="polaroid-tape"></span>
+      <img src="photos/5.jpg" alt="Romi photo 5">
+      <p>little miss universe ✦</p>
+    </div>
+
+    <!-- PHOTO 6 -->
+    <div class="mini-polaroid">
+      <span class="polaroid-tape"></span>
+      <img src="photos/6.jpg" alt="Romi photo 6">
+      <p>forever my person ♡</p>
+    </div>
+
+  </div>
+
+  <div class="scrap-note">
+    We may not have a thousand pictures together,
+    but I have a thousand reasons to be grateful for you. ♡
+  </div>
+
+  <button class="btn" onclick="goTo(2)">
+    THERE'S SOMETHING IN MY HEART →
+  </button>
+
+</section>
+
+
+
+
+
+
+
+  <!-- PAGE 3: THE LETTER -->
+  <section class="page" id="page2">
+    <div class="eyebrow">chapter two · a letter from Minhal</div>
+    <h2>To a beautiful girl <span class="gold">Romi.</span></h2>
+    <p class="subtitle">Some feelings deserve their own little envelope.</p>
+    <div class="letter-wrap">
+      <button class="envelope" id="envelope" onclick="openLetter()">
+        <span class="icon">💌</span>
+        <span class="script">A letter, sealed with love</span>
+        <p style="font-size:10px;letter-spacing:2px">TAP TO OPEN YOUR LETTER</p>
+      </button>
+      <div class="letter" id="letter">
+        <strong>My dearest girl,</strong>
+      <p>Happy 20th birthday to someone who means so much more to me than the word <em>cousin</em> could ever explain. You are family, yes — but you are also a sister my heart got to choose.</p><p>If I could wish one thing for you, it would be that life is gentle with your heart. I hope you find reasons to smile on ordinary days, people who love you in ways that feel safe, dreams that make you excited to wake up, and the courage to walk away from anything that makes you forget your worth.</p><p>I hope twenty brings you beautiful beginnings, unexpected happiness, peaceful nights, loud laughter, and moments that make you think, “I am so lucky to be here.” And on the days when life feels heavy, I hope you remember that you never have to be okay all by yourself. You have me — for the happy stories, the messy ones, the random talks, and all the little things in between.</p><p>I can't promise that every day will be perfect, but I will always wish for your happiness with my whole heart. May you grow into the woman you dream of becoming without ever losing the softness and sparkle that make you <em>you</em>.</p><p>Twenty looks beautiful on you already. This is your new chapter, and I hope it's full of love.</p><p class="signature">I love you, always. ♡</p>
+        <span class="signature">your forever sister ♡</span>
+      </div>
+    </div>
+    <button class="btn btn-outline" onclick="goTo(3)">I HAVE TWENTY WISHES FOR YOU →</button>
+  </section>
+
+ 
+<!-- PAGE 4: TWENTY WISHES -->
+<section class="page" id="page3">
+  <div class="eyebrow">chapter three · one wish for every year</div>
+
+  <h2>Twenty wishes.<br>
+    <span class="script">All for Romi.</span>
+  </h2>
+
+  <p class="subtitle">
+    Twenty little stars, each holding a wish from Minhal.
+    Tap them one by one, birthday girl. ♡
+  </p>
+
+  <div class="wish-grid" id="wishGrid"></div>
+
+  <div class="wish-counter" id="wishCounter" aria-live="polite">
+    ✧ 0 of 20 wishes discovered ✧
+  </div>
+
+  <div class="wish-reveal" id="wishReveal" aria-live="polite">
+    <span class="reveal-star">✧</span>
+    <p>Your little wishes are waiting, Romi...</p>
+    <span class="reveal-signature">With love♡</span>
+  </div>
+
+  <p class="subtitle" id="wishComplete" hidden>
+    You found all twenty wishes! May life bring you every beautiful thing
+    your heart deserves. ♡
+  </p>
+
+  <button class="btn btn-outline" onclick="goTo(4)">
+    A LITTLE NOTE FOR YOUR HEART →
+  </button>
+</section>
+
+
+  <!-- PAGE 5: THE SECRET NOTE -->
+  <section class="page" id="page4">
+    <div class="eyebrow">chapter four · open on the days you need it</div>
+    <div class="moon">✧</div>
+    <h2>Romi, if you ever <span class="gold">forget...</span></h2>
+    <p class="subtitle">A small reminder from Minhal, saved for the days when the world feels a little too loud.</p>
+    <div class="secret-box">
+      <div style="font-size:35px;margin-bottom:18px">🕊️</div>
+      <p class="subtitle" style="margin:0 auto 22px">Whenever you need to remember how loved you are, open this little note.</p>
+      <button class="btn" onclick="revealSecret()">A NOTE FOR YOUR HEART ♡</button>
+      <div class="secret-message" id="secretMessage" aria-live="polite">
+        <div class="divider"></div>
+        You are not difficult to love.<br>
+        You are not behind in life.<br>
+        You are allowed to rest.<br>
+        You are allowed to change your mind.<br>
+        You are allowed to begin again.<br>
+        You deserve the same kindness you give everyone else.<br><br>
+        You don't have to shine every day to be a star, Romi.
+        Even the sky has quiet nights.<br><br>
+        And no matter how many birthdays pass, you will always have a place in my heart.
+        <div class="script" style="margin-top:22px">Always. Not just today.</div>
+        <div class="small-note">Love, Minhal ♡</div>
+      </div>
+    </div>
+    <button class="btn btn-outline" onclick="goTo(5)">LET'S CELEBRATE YOU →</button>
+  </section>
+
+  <!-- PAGE 6: THE FINALE -->
+  <section class="page" id="page5">
+    <div class="moon">☾</div>
+    <div class="eyebrow">18 January · the world got luckier</div>
+    <h1>Happy <span class="gold">20th</span><br>birthday, Romi.</h1>
+    <div class="script">My favourite girl, always.</div>
+    <p class="subtitle">
+      Twenty years of you existing in this world, and I hope the next chapter
+      brings you softer days, louder laughter, genuine love, brave adventures,
+      beautiful surprises, and dreams so lovely you can hardly believe they're yours.
+    </p>
+    <div class="divider"></div>
+    <div class="countdown">
+      <div><strong>20</strong><span>YEARS OF YOU</span></div>
+      <div><strong>∞</strong><span>REASONS TO LOVE YOU</span></div>
+      <div><strong>♡</strong><span>ALWAYS MY SISTER</span></div>
+    </div>
+    <p class="script" style="font-size:35px">The universe is better with you in it.</p>
+    <p class="subtitle">If I had to choose my cousin all over again, I'd still choose you. Every single time.</p>
+    <button class="btn" id="celebrateBtn" onclick="celebrate()">MAKE A LITTLE MAGIC ✨</button>
+    <p class="small-note">A LITTLE PIECE OF MY HEART, MADE JUST FOR YOU.</p>
+    <div class="scrap-note" style="margin-top:12px">With love, Minhal ♡</div>
+    <button class="btn btn-outline" style="margin-top:18px" onclick="goTo(0)">♡ START OUR STORY AGAIN</button>
+  </section>
+</main>
+
+<nav class="navigation" aria-label="Birthday website pages">
+  <button class="nav-dot active" onclick="goTo(0)" aria-label="Page 1: Invitation" aria-current="page">01</button>
+  <button class="nav-dot" onclick="goTo(1)" aria-label="Page 2: Memories">02</button>
+  <button class="nav-dot" onclick="goTo(2)" aria-label="Page 3: Letter">03</button>
+  <button class="nav-dot" onclick="goTo(3)" aria-label="Page 4: Wishes">04</button>
+  <button class="nav-dot" onclick="goTo(4)" aria-label="Page 5: Secret note">05</button>
+  <button class="nav-dot" onclick="goTo(5)" aria-label="Page 6: Birthday finale">06</button>
+</nav>
+<footer>MADE WITH LOVE BY MINHAL · FOR ROMI, HER SISTER BY HEART ♡</footer>
+
+<script>
+"use strict";
+
+const songs = [
+  "songs/birthday.mp3"
+];
+
+
+
+const wishes = [
+  "May you feel deeply loved, even on ordinary days.",
+  "May your dreams feel closer with every brave step.",
+  "May you laugh until your cheeks hurt.",
+  "May you find friendships that feel like home.",
+  "May your heart be protected without becoming guarded.",
+  "May you always have the courage to begin again.",
+  "May beautiful opportunities find you.",
+  "May you be proud of the person you're becoming.",
+  "May peace find you after every difficult day.",
+  "May you discover places that make your soul feel alive.",
+  "May you never shrink yourself to fit in.",
+  "May you receive the same kindness you give away.",
+  "May you make memories you talk about for years.",
+  "May your confidence grow quietly and beautifully.",
+  "May you always have a reason to hope.",
+  "May your hard work open lovely doors.",
+  "May you feel safe being completely yourself.",
+  "May you be surrounded by honest, gentle love.",
+  "May little joys find you when you least expect them.",
+  "May twenty be the beginning of a beautiful chapter."
+];
+
+const wishGrid = document.getElementById("wishGrid");
+const wishReveal = document.getElementById("wishReveal");
+const wishCounter = document.getElementById("wishCounter");
+const wishComplete = document.getElementById("wishComplete");
+
+const discoveredWishes = new Set();
+
+wishes.forEach((message, index) => {
+  const button = document.createElement("button");
+
+  button.className = "wish";
+  button.innerHTML =
+    "✧<span>WISH " +
+    String(index + 1).padStart(2, "0") +
+    "</span>";
+
+  button.setAttribute(
+    "aria-label",
+    "Reveal birthday wish " + (index + 1)
+  );
+
+  button.setAttribute("aria-pressed", "false");
+
+  button.addEventListener("click", () => {
+    // Reveal this star's own personal message.
+    wishReveal.innerHTML = `
+      <span class="reveal-star">✧</span>
+      <p></p>
+      <span class="reveal-signature">With love, Minhal ♡</span>
+    `;
+
+    wishReveal.querySelector("p").textContent = message;
+
+    // Replay the reveal animation on every tap.
+    wishReveal.classList.remove("revealing");
+    void wishReveal.offsetWidth;
+    wishReveal.classList.add("revealing");
+
+    // Count each wish only once.
+    discoveredWishes.add(index);
+
+    button.classList.add("opened");
+    button.setAttribute("aria-pressed", "true");
+    button.innerHTML =
+      "♡<span>OPENED</span>";
+
+    wishCounter.textContent =
+      "✧ " + discoveredWishes.size +
+      " of 20 wishes discovered ✧";
+
+    if (discoveredWishes.size === wishes.length) {
+      wishComplete.hidden = false;
+      wishCounter.textContent =
+        "✧ All 20 wishes discovered! ✧";
+    }
+  });
+
+  wishGrid.appendChild(button);
+});
+
+
+const player = document.getElementById("player");
+const musicBtn = document.getElementById("musicBtn");
+const musicLabel = document.getElementById("musicLabel");
+const trackNote = document.getElementById("trackNote");
+let currentPage = 0;
+let musicWanted = false;
+let currentSong = -1;
+
+function makeStars() {
+  const sky = document.getElementById("sky");
+  for (let i = 0; i < 125; i++) {
+    const star = document.createElement("i");
+    star.className = "star";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.setProperty("--duration", (2 + Math.random() * 4) + "s");
+    star.style.animationDelay = (Math.random() * 5) + "s";
+    if (Math.random() > .82) {
+      star.style.width = "3px";
+      star.style.height = "3px";
+    }
+    sky.appendChild(star);
+  }
+}
+
+function makeShootingStar() {
+  if (document.hidden) return;
+  const star = document.createElement("span");
+  star.className = "shooting-star";
+  star.style.left = (25 + Math.random() * 75) + "%";
+  star.style.top = (Math.random() * 45) + "%";
+  document.getElementById("sky").appendChild(star);
+  setTimeout(() => star.remove(), 1500);
+}
+
+function makePetal() {
+  if (document.hidden) return;
+  const petal = document.createElement("span");
+  petal.className = "petal";
+  petal.textContent = Math.random() > .5 ? "✧" : "♡";
+  petal.style.left = Math.random() * 100 + "vw";
+  petal.style.fontSize = (10 + Math.random() * 14) + "px";
+  petal.style.setProperty("--drift", (Math.random() * 180 - 90) + "px");
+  petal.style.animationDuration = (7 + Math.random() * 8) + "s";
+  document.body.appendChild(petal);
+  setTimeout(() => petal.remove(), 16000);
+}
+
+function updateMusicButton() {
+  const isPlaying = !player.paused && !player.ended;
+  musicBtn.classList.toggle("playing", isPlaying);
+  musicLabel.textContent = isPlaying ? "PAUSE MUSIC" : "PLAY MUSIC";
+}
+
+async function playSong(index) {
+  if (index < 0 || index >= songs.length) return;
+  if (currentSong !== index) {
+    player.pause();
+    player.src = songs[index];
+    currentSong = index;
+    player.load();
+  }
+  trackNote.textContent =  "birthday melody ♡";
+  if (!musicWanted) {
+    updateMusicButton();
+    return;
+  }
+  try {
+    await player.play();
+  } catch (error) {
+    musicWanted = false;
+    musicLabel.textContent = "TAP TO PLAY MUSIC";
+    console.info("Music could not start. Check the MP3 files in the songs folder.", error);
+  }
+  updateMusicButton();
+}
+
+musicBtn.addEventListener("click", async () => {
+  if (!player.paused) {
+    musicWanted = false;
+    player.pause();
+    updateMusicButton();
+    return;
+  }
+  musicWanted = true;
+  await playSong(0);
+});
+
+player.addEventListener("play", updateMusicButton);
+player.addEventListener("pause", updateMusicButton);
+player.addEventListener("ended", updateMusicButton);
+
+function goTo(index) {
+  if (index < 0 || index > 5) return;
+  currentPage = index;
+
+  document.querySelectorAll(".page").forEach((page, i) => {
+    page.classList.toggle("active", i === index);
+  });
+  document.querySelectorAll(".nav-dot").forEach((dot, i) => {
+    dot.classList.toggle("active", i === index);
+    if (i === index) dot.setAttribute("aria-current", "page");
+    else dot.removeAttribute("aria-current");
+  });
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+ 
+  if (index === 5) launchConfetti(35);
+}
+
+function openLetter() {
+  document.getElementById("letter").classList.add("open");
+  document.getElementById("envelope").style.display = "none";
+}
+
+
+
+function revealSecret() {
+  document.getElementById("secretMessage").classList.add("show");
+}
+
+function launchConfetti(amount = 100) {
+  const symbols = ["✦", "♡", "✧", "·"];
+  const colors = ["#e9cb91", "#e8b9c7", "#fff4e8", "#c5b5e8"];
+  for (let i = 0; i < amount; i++) {
+    const piece = document.createElement("span");
+    piece.className = "confetti";
+    piece.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    piece.style.left = Math.random() * 100 + "vw";
+    piece.style.color = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.fontSize = (9 + Math.random() * 12) + "px";
+    piece.style.setProperty("--x", (Math.random() * 240 - 120) + "px");
+    piece.style.setProperty("--speed", (3 + Math.random() * 4) + "s");
+    document.body.appendChild(piece);
+    setTimeout(() => piece.remove(), 9500);
+  }
+}
+
+function celebrate() {
+  launchConfetti(150);
+  const btn = document.getElementById("celebrateBtn");
+  btn.textContent = "YOU DESERVE EVERY LITTLE BIT OF MAGIC ♡";
+  setTimeout(() => { btn.textContent = "MAKE A LITTLE MAGIC ✨"; }, 3500);
+}
+
+makeStars();
+setInterval(makePetal, 950);
+setInterval(makeShootingStar, 6500);
+</script>
+</body>
+</html>
